@@ -1,0 +1,79 @@
+<div class="wstep">
+<h2><%= @mecz.display_name2 %></h2>
+<h2><%= @mecz.display_date %></h2><br><br>
+
+</div>
+<div class="gospodarze-mecz">
+<h3><div class="nav-links3"><a href="/druzyny/<%= @mecz.id_pierwszego%>"><%= @mecz.display_team1 %></a></div></h3>
+<ul>
+  <% @sklady.each do |sklad| %>
+    <% if sklad.id_meczu == @mecz.id %>
+
+      <% if sklad.id_zespolu == @mecz.id_pierwszego %>
+        <h4>1. <%= sklad.zawodnik1naz%></h4>
+        <h4>2. <%= sklad.zawodnik2naz%></h4>
+        <h4>3. <%= sklad.zawodnik3naz%></h4>
+        <h4>4. <%= sklad.zawodnik4naz%></h4>
+        <h4>5. <%= sklad.zawodnik5naz%></h4>
+        <h4>6. <%= sklad.zawodnik6naz%></h4>
+        <h4>7. <%= sklad.zawodnik7naz%></h4>
+        <h4>8. <%= sklad.zawodnik8naz%></h4>
+        <h4>9. <%= sklad.zawodnik9naz%></h4>
+        <h4>10. <%= sklad.zawodnik10naz%></h4>
+        <h4>11. <%= sklad.zawodnik11naz%></h4>
+      <% end %>
+
+    <% end %>
+  <% end %>
+</ul>
+</div>
+
+<div class="staty-mecz">
+  <h3><b><%= @mecz.gole_pierwszego %> - <%= @mecz.gole_drugiego %></b></h3>
+  <h4><b>Bramki: </b></h4><br>
+  <% @bramki.each do |bramki|%>
+    <% if bramki.id_meczu == @mecz.id %>
+      <%= bramki.minuta %>' <%= bramki.display_strzelec %> (<%= bramki.display_asystent %>)<br><br>
+    <% end %>
+  <% end %>
+
+<br><h4><b>Żółte kartki: </b></h4><br>
+  <% @kartkaz.each do |zolta| %>
+    <% if zolta.id_meczu == @mecz.id %>
+      <%= zolta.minuta %>' <%= zolta.display_zolta %><br><br>
+    <% end %>
+  <% end %>
+
+<br><h4><b>Czerwone kartki: </b></h4><br>
+  <% @kartkac.each do |czerwona| %>
+    <% if czerwona.id_meczu == @mecz.id %>
+      <%= czerwona.minuta %>' <%= czerwona.display_czerwona %><br><br>
+    <% end %>
+  <% end %>
+</div>
+
+
+<div class="goscie-mecz">
+<h3><div class="nav-links3"><a href="/druzyny/<%= @mecz.id_drugiego%>"><%= @mecz.display_team2 %></a></div></h3>
+<ul>
+  <% @sklady.each do |sklad| %>
+    <% if sklad.id_meczu == @mecz.id %>
+
+      <% if sklad.id_zespolu == @mecz.id_drugiego %>
+        <h4>1. <%= sklad.zawodnik1naz%></h4>
+        <h4>2. <%= sklad.zawodnik2naz%></h4>
+        <h4>3. <%= sklad.zawodnik3naz%></h4>
+        <h4>4. <%= sklad.zawodnik4naz%></h4>
+        <h4>5. <%= sklad.zawodnik5naz%></h4>
+        <h4>6. <%= sklad.zawodnik6naz%></h4>
+        <h4>7. <%= sklad.zawodnik7naz%></h4>
+        <h4>8. <%= sklad.zawodnik8naz%></h4>
+        <h4>9. <%= sklad.zawodnik9naz%></h4>
+        <h4>10 <%= sklad.zawodnik10naz%></h4>
+        <h4>11. <%= sklad.zawodnik11naz%></h4>
+      <% end %>
+
+    <% end %>
+  <% end %>
+</ul>
+</div>

@@ -1,0 +1,18 @@
+<div class="tytul">
+<%= form_with model: @home, url: home_path do |form| %>
+
+  <div>
+    <%= form.label :"Tytuł turnieju:" %><br>
+    <%= form.text_field :tytul %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Opis turnieju: " %><br>
+    <%= form.text_area :opis %>
+  </div>
+
+  <%= form.hidden_field :czydodano, value: 1 %>
+<br>
+    <%= form.submit "Dodaj opis" %>
+<% end %>
+</div>

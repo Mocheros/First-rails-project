@@ -1,0 +1,31 @@
+<div class="gospodarze">
+
+<h2>Skład drużyny:<br></h2>
+<h3><%= @mecz.display_team1 %><br></h3>
+<h4>Na mecz:<br></h4>
+<h3><%= @mecz.display_name %><br></h3>
+
+
+
+
+<%= form_for :sklady do |f| %>
+
+    <%= f.hidden_field :id_meczu, value: @mecz.id  %>
+    <%= f.hidden_field :id_zespolu, value: @mecz.id_pierwszego %>
+    
+    <%= f.collection_select :zawodnik1naz, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE zawodniks.id_zespolu = '#{@mecz.id_pierwszego}'"), :nazwisko, :display_name %><br>
+    <%= f.collection_select :zawodnik2naz, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE zawodniks.id_zespolu = '#{@mecz.id_pierwszego}'"), :nazwisko, :display_name %><br>
+    <%= f.collection_select :zawodnik3naz, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE zawodniks.id_zespolu = '#{@mecz.id_pierwszego}'"), :nazwisko, :display_name %><br>
+    <%= f.collection_select :zawodnik4naz, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE zawodniks.id_zespolu = '#{@mecz.id_pierwszego}'"), :nazwisko, :display_name %><br>
+    <%= f.collection_select :zawodnik5naz, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE zawodniks.id_zespolu = '#{@mecz.id_pierwszego}'"), :nazwisko, :display_name %><br>
+    <%= f.collection_select :zawodnik6naz, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE zawodniks.id_zespolu = '#{@mecz.id_pierwszego}'"), :nazwisko, :display_name %><br>
+    <%= f.collection_select :zawodnik7naz, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE zawodniks.id_zespolu = '#{@mecz.id_pierwszego}'"), :nazwisko, :display_name %><br>
+    <%= f.collection_select :zawodnik8naz, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE zawodniks.id_zespolu = '#{@mecz.id_pierwszego}'"), :nazwisko, :display_name %><br>
+    <%= f.collection_select :zawodnik9naz, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE zawodniks.id_zespolu = '#{@mecz.id_pierwszego}'"), :nazwisko, :display_name %><br>
+    <%= f.collection_select :zawodnik10naz, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE zawodniks.id_zespolu = '#{@mecz.id_pierwszego}'"), :nazwisko, :display_name %><br>
+    <%= f.collection_select :zawodnik11naz, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE zawodniks.id_zespolu = '#{@mecz.id_pierwszego}'"), :nazwisko, :display_name %><br>
+    <%= f.hidden_field :czysklad1, value: 1 %>
+    <!--<%= f.collection_check_boxes(:id_zawodnika, Zawodnik.find_by_sql("SELECT * FROM zawodniks, meczs WHERE zawodniks.id_zespolu = meczs.id_pierwszego"), :id, :nazwisko) %><br>-->
+    <br><%= f.submit value: "Dodaj skład"%>
+<% end %>
+</div>

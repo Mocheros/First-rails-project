@@ -1,0 +1,64 @@
+<div class="tabela-dodaj-zawodnika">
+<%= form_with model: @zawodnicy, url: zawodnicy_path do |form| %>
+  
+  <div>
+    <%= form.label :"Imię" %><br>
+    <%= form.text_field :imie %>
+    <% @zawodnicy.errors.full_messages_for(:imie).each do |message| %>
+      <div><%= "Wprowadź imię zawodnika!" %></div>
+    <% end %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Nazwisko" %><br>
+    <%= form.text_field :nazwisko %>
+    <% @zawodnicy.errors.full_messages_for(:nazwisko).each do |message| %>
+      <div><%= "Wprowadź nazwisko zawodnika!" %></div>
+    <% end %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Zespół" %><br>
+    <%= form.collection_select :id_zespolu, Zespol.order(:nazwa), :id, :nazwa %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Narodowosc" %><br>
+    <%= form.text_field :narodowosc %>
+    <% @zawodnicy.errors.full_messages_for(:narodowosc).each do |message| %>
+      <div><%= "Wprowadź narodowość zawodnika!" %></div>
+    <% end %>
+  </div>
+
+  <div class="data-urodzenia"><br>
+    <%= form.label :"Data urodzenia" %><br>
+    <%= form.date_field :rok_urodzenia %>
+    <% @zawodnicy.errors.full_messages_for(:rok_urodzenia).each do |message| %>
+      <div><%= "Wprowadź date urodzenia zawodnika!" %></div>
+    <% end %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Numer na koszulce" %><br>
+    <%= form.number_field :numer %>
+    <% @zawodnicy.errors.full_messages_for(:numer).each do |message| %>
+      <div><%= "Wprowadź numer zawodnika!" %></div>
+    <% end %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Pozycja" %><br>
+    <%= form.select :pozycja, ["Bramkarz", "Obrońca", "Pomocnik", "Napastnik"] %>
+  </div>
+
+  <%= form.hidden_field :gole, value: 0 %>
+  <%= form.hidden_field :asysty, value: 0 %>
+  <%= form.hidden_field :zolte_kartki, value: 0 %>
+  <%= form.hidden_field :czerwone_kartki, value: 0 %>
+  <%= form.hidden_field :rozegrane_mecze, value: 0 %>
+
+  <div><br>
+    <%= form.submit "Dodaj zawodnika" %>
+  </div>
+<% end %>
+</div>

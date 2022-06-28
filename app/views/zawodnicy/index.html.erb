@@ -1,0 +1,53 @@
+<div class="tabela-zawodnicy">
+<h1>Zawodnicy</h1>
+	<form>
+		<div>
+			<table border=1>
+				<tr>
+					<th>#<th>Zawodnik</th><% if logged_in? %><th>ID</th><% end %><th>Zespół</th><th>Narodowość</th><th>Data urodzenia</th><% if logged_in? %><th>Zarządzaj</th><% end %>
+				</tr>		
+				<% @zawodnicy.each do |zawodnik| %>
+				<tr>
+					<td></td>
+					<td>	
+						<%= zawodnik.imie + " " + zawodnik.nazwisko %>
+					</td>
+				<% if logged_in? %>
+					<td>
+						<%= zawodnik.id %>
+					</td>
+				<% end %>				
+					<td>
+						<%= zawodnik.nazwa %>
+					</td>
+					<td>
+						<%= zawodnik.narodowosc %>
+					</td>
+					<td>
+						<%= zawodnik.rok_urodzenia %>
+					</td>
+					<% if logged_in? %>
+						<td>
+							<% if zawodnik.rozegrane_mecze == 0 && zawodnik.gole == 0 && zawodnik.asysty == 0 %>
+								<div class="nav-links3">
+									<%= link_to "Usuń", zawodnik_path(zawodnik), method: :delete, data: { confirm: "Czy na pewno chcesz usunąć tego zawodnika?" }%>
+							<% end %>
+								</div>
+							<div class="nav-links3">
+								<%= link_to "Edytuj", edit_zawodnik_path(zawodnik) %>
+							</div>
+						</td>
+					<% end %>
+				</tr>		
+				<% end %>
+			</table>
+		<div>
+	</form>
+</div>
+<% if logged_in? %>
+	<h4>
+		<div class="nav-links3">
+			<%= link_to "Dodaj nowego zawodnika", "/zawodnicy/new" %>
+		</div>
+	</h4>
+<% end %>

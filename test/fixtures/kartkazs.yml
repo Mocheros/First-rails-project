@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_meczu: 1
+  id_zespolu: 1
+  id_zawodnika: 1
+  minuta: 1
+
+two:
+  id_meczu: 1
+  id_zespolu: 1
+  id_zawodnika: 1
+  minuta: 1

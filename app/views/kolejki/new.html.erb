@@ -1,0 +1,32 @@
+<div class="tabela-dodaj-zawodnika">
+<%= form_with model: @kolejki, url: kolejki_path do |form| %>
+
+  <div>
+    <%= form.label :"Data Rozpoczęcia" %><br>
+    <%= form.date_field :data_rozpoczecia %>
+    <% @kolejki.errors.full_messages_for(:data_rozpoczecia).each do |message| %>
+      <div><%= "Wprowadź datę rozpoczęcia!" %></div>
+    <% end %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Data Zakończenia" %><br>
+    <%= form.date_field :data_zakonczenia %>
+    <% @kolejki.errors.full_messages_for(:data_zakonczenia).each do |message| %>
+      <div><%= "Wprowadź datę zakończenia!" %></div>
+    <% end %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Numer kolejki" %><br>
+    <%= form.number_field :nr %>
+    <% @kolejki.errors.full_messages_for(:nr).each do |message| %>
+      <div><%= "Wprowadź numer kolejki!" %></div>
+    <% end %>
+  </div>
+
+  <div><br>
+    <%= form.submit "Dodaj kolejke" %>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,21 @@
+<div class="gospodarze-staty">
+    <h3>Statystyki dla <%= @mecz.display_team1 %></h3><br><br>
+    <div class="nav-links2">
+    <ul>
+    <li><a href="/mecze/<%= @mecz.id %>/bramkigosp">Bramka</a></li><br><br>
+    <li><a href="/mecze/<%= @mecz.id %>/kartkazgosp">Żółta kartka</a></li><br><br>
+    <li><a href="/mecze/<%= @mecz.id %>/kartkacgosp">Czerwona kartka</a></li><br><br>
+    </ul>
+    </div>
+</div>
+
+<div class="goscie-staty">
+    <h3>Statystyki dla <%= @mecz.display_team2 %></h3><br><br>
+    <div class="nav-links2">
+    <ul>
+    <li><a href="/mecze/<%= @mecz.id %>/bramkigosc">Bramka</a></li><br><br>
+    <li><a href="/mecze/<%= @mecz.id %>/kartkazgosc">Żółta kartka</a></li><br><br>
+    <li><a href="/mecze/<%= @mecz.id %>/kartkacgosc">Czerwona kartka</a></li><br><br>
+    </ul>
+    </div>
+</div>

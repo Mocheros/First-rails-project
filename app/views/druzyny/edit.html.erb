@@ -1,0 +1,17 @@
+<div class="nowa-druzyna">
+<%= form_for(@druzyna, url: zespol_path) do |form| %>
+  <div><br>
+    <%= form.label :"Nazwa drużyny" %><br>
+    <%= form.text_field :nazwa %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Nazwa stadionu" %><br>
+    <%= form.text_field :stadion %>
+  </div>
+
+  <div><br>
+    <%= form.submit "Edytuj drużynę" %>
+  </div>
+<% end %>
+</div>

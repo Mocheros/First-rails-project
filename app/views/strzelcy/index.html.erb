@@ -1,0 +1,23 @@
+<div class="tabela-strzelcow">
+<h1>Strzelcy</h1>
+	<table border=1>
+		<tr>
+			<th>Miejsce</th><th>Zawodnik</th><th>Zespół</th><th>Gole</th>
+		</tr>	
+		<% @chlop.each do |strzelec| %>
+		<tr>
+			<td>		
+			</td>
+			<td>			
+				<%= strzelec.imie + " " + strzelec.nazwisko %>
+			</td>	
+			<td>
+				<%= strzelec.nazwa %>
+			</td>			
+			<td>
+				<%= strzelec.gole %>
+			</td>
+		</tr>		
+		<% end %>
+	</table>
+</div>

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_meczu: 1
+  id_zawodnika: 1
+  bramki_strzelone: 1
+  asysty: 1
+  zolte_kartki: 1
+  czerwone_kartki: 1
+
+two:
+  id_meczu: 1
+  id_zawodnika: 1
+  bramki_strzelone: 1
+  asysty: 1
+  zolte_kartki: 1
+  czerwone_kartki: 1

@@ -1,0 +1,44 @@
+<div class ="tabela-tabel">
+<h1>Tabela</h1>
+	<table border=1>
+		<tr>
+			<th>Miejsce</th><th>Zespół</th><th>Mecze</th><th>Zwycięstwa</th><th>Remisy</th><th>Porażki</th>
+			<th>Gole strzelone</th><th>Gole stracone</th><th>Punkty</th>
+		</tr>
+		
+		<% @zespols.each do |tabela| %>
+		<tr>
+			<td>		
+			</td>
+			<td>		
+				<div class="nav-links3">	
+				<a href="/druzyny/<%= tabela.id %>">
+					<%= tabela.nazwa %>
+				</a>
+				</div>
+			</td>
+			<td>
+				<%= tabela.mecze_zespolu %>
+			</td>				
+			<td>
+				<%= tabela.zwyciestwa %>
+			</td>
+			<td>
+				<%= tabela.remisy %>
+			</td>
+			<td>
+				<%= tabela.porazki %>
+			</td>
+			<td>
+				<%= tabela.gole_strzelone %>
+			</td>
+			<td>
+				<%= tabela.gole_stracone %>
+			</td>
+			<td>
+				<%= tabela.punkty %>
+			</td>
+		</tr>		
+		<% end %>
+	</table>
+</div>

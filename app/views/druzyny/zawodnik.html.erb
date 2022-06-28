@@ -1,0 +1,43 @@
+<style>
+table {
+  width: 50%;
+  counter-reset: row-num -1;
+}
+table tr {
+  counter-increment: row-num;
+}
+table tr td:first-child::before {
+    content: counter(row-num) ". ";
+}
+</style>
+
+<%= form_with model: @zawodnicy do |form| %>
+  <div>
+    <%= form.label :"Imię" %><br>
+    <%= form.text_field :imie %>
+  </div>
+
+  <div>
+    <%= form.label :"Nazwisko" %><br>
+    <%= form.text_field :nazwisko %>
+  </div>
+
+  <div>
+    <%= form.label :"Narodowosc" %><br>
+    <%= form.text_field :narodowosc %>
+  </div>
+
+  <div>
+    <%= form.label :"Data urodzenia" %><br>
+    <%= form.date_field  :rok_urodzenia %>
+  </div>
+
+  <div>
+    <%= form.label :"Numer na koszulce" %><br>
+    <%= form.number_field :numer %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

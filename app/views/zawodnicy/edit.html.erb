@@ -1,0 +1,43 @@
+<div class="tabela-dodaj-zawodnika">
+<%= form_for(@zawodnicy, url: zawodnik_path) do |form| %>
+  <div><br>
+    <%= form.label :"Imię" %><br>
+    <%= form.text_field :imie %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Nazwisko" %><br>
+    <%= form.text_field :nazwisko %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Zespół" %><br>
+    <%= form.collection_select :id_zespolu, Zespol.order(:nazwa), :id, :nazwa %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Narodowosc" %><br>
+    <%= form.text_field :narodowosc %>
+  </div>
+
+  <div class="data-urodzenia"><br>
+    <%= form.label :"Data urodzenia" %><br>
+    <%= form.date_field :rok_urodzenia %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Numer na koszulce" %><br>
+    <%= form.number_field :numer %>
+  </div>
+
+  <%= form.hidden_field :gole, value: 0 %>
+  <%= form.hidden_field :asysty, value: 0 %>
+  <%= form.hidden_field :zolte_kartki, value: 0 %>
+  <%= form.hidden_field :czerwone_kartki, value: 0 %>
+  <%= form.hidden_field :rozegrane_mecze, value: 0 %>
+
+  <div><br>
+    <%= form.submit "Edytuj zawodnika" %>
+  </div>
+<% end %>
+</div>

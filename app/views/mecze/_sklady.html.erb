@@ -1,0 +1,44 @@
+<!--
+<%= @mecz.id %>
+
+Gospodarz: <%= @mecz.display_team1 %> <%= @mecz.display_id1%><br>
+Gość: <%= @mecz.display_team2 %> <%= @mecz.display_id2%><br>
+
+<% @zawodnicy.each do |zawodnik|%>
+    <% if zawodnik.id_zespolu == @mecz.id_pierwszego%>
+        <%= zawodnik.nazwisko%> <%= zawodnik.id_zespolu%> <%= @mecz.display_id1%><br>
+    <% end %>
+<% end %>
+
+<h3><%= @mecz.display_team1 %></h3>
+<h4>Bramkarze</h4>
+<% @zawodnicy.each do |zawodnik|%>
+    <% if zawodnik.id_zespolu == @mecz.id_pierwszego and zawodnik.pozycja == "Bramkarz" %>
+        <%= zawodnik.nazwisko%> <%= zawodnik.id%>
+            <form action = "/mecze/<%= @mecz.id %>/sklady">
+                <input type="checkbox" name="czygra" value="<%=zawodnik.id%>">
+                    <% if @dane == "true"%>
+                        <%= @x = zawodnik.id%>
+                        <%= Zawodnik.find_by_sql("UPDATE zawodniks SET rozegrane_mecze = rozegrane_mecze + 1 WHERE id = '#{@x}'") %>
+                    <% end %>
+        <br>
+    <% end %>
+<% end %>
+-->
+
+<%= @mecz.id %><br>
+
+Gospodarz: <%= @mecz.display_team1 %> <%= @mecz.display_id1%><br>
+Gość: <%= @mecz.display_team2 %> <%= @mecz.display_id2%><br>
+
+<%= form_for(sklady_path) do |f| %>
+    <%= f.hidden_field :id_meczu, value: 1 %>
+    <%= f.hidden_field :id_zespolu, value: 1 %> 
+    <%= f.hidden_field :pozycja, value: "Bramkarz" %>
+
+    <%= f.label :id_zawodnika, "Zawodnicy" %><br>
+    <%= f.collection_check_boxes(:id_zawodnika, Zawodnik.all, :id, :nazwisko) %><br>
+
+
+<%= f.submit %>
+<% end %>

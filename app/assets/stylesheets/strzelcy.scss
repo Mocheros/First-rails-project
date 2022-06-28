@@ -1,0 +1,32 @@
+// Place all the styles related to the Strzelcy controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.tabela-strzelcow {
+	width: 90%;
+	color: #fff;
+	position: relative;
+	top: 50%;
+	left: 5%;
+	text-align:center;
+	font-size:20px;
+	counter-reset: row-num -1;
+	background-attachment: fixed;
+}
+.tabela-strzelcow tr {
+	counter-increment: row-num;
+}
+.tabela-strzelcow th {
+	text-align:center;
+}
+.tabela-strzelcow tr td:first-child::before {
+	content: counter(row-num) ". ";
+}
+.tabela-strzelcow h1 {
+	font-size:30px;
+	color:white;
+}
+.tabela-strzelcow tr td a {
+	font-size:20px;
+	color:white;
+}

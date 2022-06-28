@@ -1,0 +1,48 @@
+<div class="tabela-druzyn">
+<h1>Drużyny</h1>
+<div>
+	<form>
+		<div>
+			<table border=1>
+				<tr>
+					<th>Nr</th><th>Nazwa drużyny</th><th>Nazwa stadionu</th><% if logged_in? %><th>Zarządzaj</th><% end %>
+				</tr>		
+				<% @druzyny.each do |druzyna| %>
+				<tr>
+					<td>		
+					</td>
+					<td>
+						<div class="nav-links3">
+						<a href="/druzyny/<%= druzyna.id %>">
+							<%= druzyna.nazwa %>
+						</a>
+						</div>
+					</td>				
+					<td>
+						<%= druzyna.stadion%>
+					</td>
+					<% if logged_in? %>
+						<td>
+							<% if druzyna.mecze_zespolu == 0 %>
+								<div class="nav-links3">
+									<%= link_to "Usuń", zespol_path(druzyna), method: :delete, data: {confirm: "Czy na pewno chcesz usunąć tę drużynę??"} %>
+							<% end %>
+							</div>
+							<div class="nav-links3">
+								<%= link_to "Edytuj", edit_zespol_path(druzyna) %>
+							</div>
+						</td>
+					<% end %>
+				</tr>		
+				<% end %>
+			</table>
+		<div>
+	</form>
+</div>
+
+<% if logged_in? %>
+	<div class="nav-links3">
+		<h4><%= link_to "Dodaj nową drużynę", "druzyny/new" %></h4>
+	</div>
+<% end %>
+</div>

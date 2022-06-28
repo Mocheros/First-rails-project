@@ -1,0 +1,24 @@
+<div class="dodaj-bramke">
+<%= form_for :bramki do |form| %>
+
+    <%= form.hidden_field :id_meczu, value: @mecz.id %>
+    <%= form.hidden_field :id_zespolu, value: @mecz.id_drugiego %>
+
+  <div><br>
+    <%= form.label :"Strzelec" %><br>
+    <%= form.collection_select :id_strzelca, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE id_zespolu = '#{@mecz.id_drugiego}'"), :id, :display_name %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Asystent" %><br>
+    <%= form.collection_select :id_asystenta, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE id_zespolu = '#{@mecz.id_drugiego}'"), :id, :display_name %>
+  </div>
+
+  <div class="minuta"><br>
+    <%= form.label :"Minuta" %>
+    <%= form.number_field :minuta %>
+  </div>
+
+    <br><br><%= form.submit "Dodaj bramkę" %>
+<% end %>
+</div>

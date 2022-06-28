@@ -1,0 +1,7 @@
+<div class="potwierdzenie">
+<%= form_for(@mecz, url: {action: "update"}) do |form| %>
+<%= form.hidden_field :czywynik, value: 1 %>
+<h2>Potwierdzam, że mecz się zakończył i zostały do niego wprowadzone wszystkie statystyki</h2><br>
+<%= form.submit "Potwierdzam" %>
+<% end %>
+</div>

@@ -1,0 +1,69 @@
+<style>
+h5{
+	color: white;
+}
+
+h3{
+	text-align: center;
+}
+</style>
+
+<section class="strona-glowna">
+	<% @home.each do |home| %>
+		<h3><%= home.tytul %></h3>
+		<h5><%= home.opis %></h5>
+		<% @x = home.czydodano %>
+	<% end %>
+		<% if logged_in? %>
+			<% unless @x == 1%>
+				<div class="nav-links3"><%= link_to "Dodaj tytuł i opis turnieju", "/home/new" %></a>
+			<% end %>
+		<% end %>
+	<br><br>
+	<div class="strona-glowna-row">
+		<div class="strona-glowna-col">
+			<a href="/tabela">
+			<img src="images/zdj9.jpg" alt="jpg1" style="width:100%" class="grayscale">
+			<div class="layer">
+				<h3>Tabela</h3>
+			</div></a>
+		</div>
+		<div class="strona-glowna-col">
+			<a href="/druzyny">
+			<img src="images/zdj7.jpg" alt="jpg1" style="width:100%" class="grayscale">
+			<div class="layer">	
+				<h3>Druzyny</h3>
+			</div></a>
+		</div>
+		<div class="strona-glowna-col">
+			<a href="/kolejki">
+			<img src="images/zdj2.jpg" alt="jpg1" style="width:100%" class="grayscale">
+			<div class="layer">
+				<h3>Kolejki</h3>	
+			</div></a>
+		</div>
+		<div class="strona-glowna-col">
+			<a href="/strzelcy">
+			<img src="images/zdj3.jpg" alt="jpg1" style="width:100%" class="grayscale">
+			<div class="layer">
+				<h3>Strzelcy</h3>
+			</div></a>
+		</div>
+		<div class="strona-glowna-col">
+			<a href="/zawodnicy">
+			<img src="images/zdj8.jpg" alt="jpg1" style="width:100%" class="grayscale">
+			<div class="layer">
+				<h3>Zawodnicy</h3>
+			</div></a>
+		</div>
+		<div class="strona-glowna-col">
+			<a href="/konto">
+			<img src="images/zdj6.jpg" alt="jpg1" style="width:100%" class="grayscale">
+			<div class="layer">
+				<h3>Konto</h3>
+			</div>
+		</div>
+		
+	</div>
+</section>
+

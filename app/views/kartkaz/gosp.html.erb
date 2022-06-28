@@ -1,0 +1,19 @@
+<div class="kartka">
+<%= form_for :kartkaz do |form| %>
+
+    <%= form.hidden_field :id_meczu, value: @mecz.id %>
+    <%= form.hidden_field :id_zespolu, value: @mecz.id_pierwszego %>
+
+  <div><br>
+    <%= form.label :"Żółta kartka dla zawodnika" %><br>
+    <%= form.collection_select :id_zawodnika, Zawodnik.find_by_sql("SELECT * FROM zawodniks WHERE id_zespolu = '#{@mecz.id_pierwszego}'"), :id, :display_name %>
+  </div>
+
+  <div class="minuta"><br>
+    <%= form.label :"Minuta" %><br>
+    <%= form.number_field :minuta %>
+  </div>
+
+    <br><br><%= form.submit "Dodaj żółtą kartkę" %>
+<% end %>
+</div>

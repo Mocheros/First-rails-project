@@ -1,0 +1,30 @@
+<div class="tabela-dodaj-zawodnika">
+<%= form_with model: @mecz, url: mecze_path do |form| %>
+
+  <div><br>
+    <%= form.label :"Gospodarze" %><br>
+    <%= form.collection_select :id_pierwszego, Zespol.order(:nazwa), :id, :nazwa %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Goście" %><br>
+    <%= form.collection_select :id_drugiego, Zespol.order(:nazwa), :id, :nazwa %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Termin" %><br>
+    <%= form.date_field  :termin %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Numer kolejki" %>
+    <%= form.collection_select :nr_kolejki, Kolejka.order(:nr), :id, :nr %>
+  </div>
+  
+    <%= form.hidden_field :czywynik, value: 0 %>
+    <%= form.hidden_field :gole_pierwszego, value: 0 %>
+    <%= form.hidden_field :gole_drugiego, value: 0 %>
+  <div><br>
+    <%= form.submit "Dodaj mecz"%>
+  </div>
+<% end %>

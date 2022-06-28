@@ -1,0 +1,32 @@
+<div class="nowa-druzyna">
+<%= form_with model: @druzyna do |form| %>
+  <div>
+    <%= form.label :"Nazwa drużyny" %><br>
+    <%= form.text_field :nazwa %>
+    <% @druzyna.errors.full_messages_for(:nazwa).each do |message| %>
+      <div><%= "Wprowadź nazwę drużyny!" %></div>
+    <% end %>
+  </div>
+
+  <div><br>
+    <%= form.label :"Nazwa stadionu" %><br>
+    <%= form.text_field :stadion %>
+    <% @druzyna.errors.full_messages_for(:stadion).each do |message| %>
+      <div><%= "Wprowadź nazwę stadionu!" %></div>
+    <% end %>
+    
+  </div>
+
+  <%= form.hidden_field :mecze_zespolu, value: 0 %>
+  <%= form.hidden_field :punkty, value: 0 %>
+  <%= form.hidden_field :zwyciestwa, value: 0 %>
+  <%= form.hidden_field :porazki, value: 0 %>
+  <%= form.hidden_field :remisy, value: 0 %>
+  <%= form.hidden_field :gole_strzelone, value: 0 %>
+  <%= form.hidden_field :gole_stracone, value: 0 %>
+
+  <div><br>
+    <%= form.submit "Dodaj Zespół"%>
+  </div>
+<% end %>
+</div>

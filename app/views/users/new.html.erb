@@ -1,0 +1,11 @@
+<div class="rejestracja-formularz">
+<h1>Rejestracja</h1>
+<%= form_for @user do |f|%>
+  <%= f.label :Login%><br>
+  <%= f.text_field :username, class:'rejestracja-pole'%><br>
+  <%= f.label :Haslo%><br>
+  <%= f.password_field :password%><br>
+  <br>
+  <%= f.submit "Zarejestruj"%>
+<%end%>
+</div>

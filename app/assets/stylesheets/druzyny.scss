@@ -1,0 +1,67 @@
+// Place all the styles related to the Druzyny controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.tabela-druzyn {
+	width: 90%;
+	color: #fff;
+	position: relative;
+	top: 50%;
+	left: 5%;
+	text-align:center;
+	font-size:20px;
+	counter-reset: row-num -1;
+	background-attachment: fixed;
+}
+.tabela-druzyn tr {
+	counter-increment: row-num;
+}
+.tabela-druzyn th {
+	text-align:center;
+}
+.tabela-druzyn tr td:first-child::before {
+	content: counter(row-num) ". ";
+}
+.tabela-druzyn h1 {
+	font-size:40px;
+	color:white;
+}
+.tabela-druzyn tr td a {
+	font-size:20px;
+	color:white;
+}
+
+
+.tabela-pokaz-druzyne {
+	width: 90%;
+	color: #fff;
+	position: relative;
+	top: 50%;
+	left: 5%;
+	text-align:center;
+	font-size:20px;
+	background-attachment: fixed;
+}
+.tabela-pokaz-druzyne tr {
+	counter-increment: row-num;
+}
+.tabela-pokaz-druzyne th {
+	text-align:center;
+}
+.tabela-pokaz-druzyne h1 {
+	font-size:30px;
+	color:white;
+}
+
+.nowa-druzyna {
+	width: 30%;
+	height: 50%;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align:center;
+	font-size:20px;
+	counter-reset: row-num -1;
+}

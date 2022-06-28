@@ -1,0 +1,46 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.zalogowano h1 {
+	color:white;
+	font-size:20px;
+}
+
+.rejestracja-formularz {
+	font-size:20px;
+	color: #fff;
+	width:20%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align:center;
+}
+
+.rejestracja-formularz h1 {
+	font-size:35px;
+	color:white;
+}
+
+.rejestracja-pole{
+	size: 40;
+}
+
+
+.logowanie-formularz {
+	font-size:20px;
+	width:20%;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align:center;
+
+}
+.logowanie-formularz h1 {
+	font-size:35px;
+	color:white;
+}
+

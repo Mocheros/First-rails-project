@@ -1,0 +1,16 @@
+<div class="zalogowano">
+<h2>Witaj!</h2>
+<% if logged_in? %>
+    <h3>Jesteś zalogowany jako:<b> <%= current_user.username %></b></h3>
+<%end%>
+<% unless logged_in? %>
+    <%= button_to "Zaloguj", '/login', method: :get%>
+    <br>
+<%end%>
+
+<% if logged_in? %>
+    <%= button_to "Wyloguj", '/logout', method: :get%>
+<%end%>
+</div>
+
+

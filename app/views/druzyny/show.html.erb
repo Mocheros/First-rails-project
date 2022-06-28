@@ -1,0 +1,55 @@
+<div class="tabela-pokaz-druzyne">
+<h3><b><%= @druzyna.nazwa %></b></h3>
+
+<h4>Stadion: <%= @druzyna.stadion %></h4>
+<% if logged_in? %>
+    <p>ID: <%= @druzyna.id %></p>
+<% end %>
+
+<h2>Zawodnicy: </h2>
+
+<table border=1>
+    <tr>
+        <th>Nr</th><th>Zawodnik</th><th>Data urodzenia</th><th>Narodowość</th><th>Mecze</th><th>Gole</th><th>Asysty</th><th>Żółte kartki</th><th>Czerwone kartki</th>
+    </tr>		
+        <% @zawodnicy.each do |zawodnik| %>
+    <tr>
+        <td>
+            <%= zawodnik.numer%>
+        </td>
+        <td>
+            <%= zawodnik.imie + " " + zawodnik.nazwisko %>
+        </td>
+        <td>
+            <%= zawodnik.rok_urodzenia %>
+        </td>				
+        <td>
+            <%= zawodnik.narodowosc%>
+        </td>
+        <td>
+            <%= zawodnik.rozegrane_mecze%>
+        </td>
+        <td>
+            <%= zawodnik.gole%>
+        </td>
+        <td>
+            <%= zawodnik.asysty%>
+        </td>
+        <td>
+            <%= zawodnik.zolte_kartki%>
+        </td>
+        <td>
+            <%= zawodnik.czerwone_kartki%>
+        </td>
+    </tr>		
+    <% end %>
+</table>
+
+<% if logged_in? %>
+	<div>
+        <div class="nav-links3">
+            <a href="/zawodnicy/new">Dodaj nowego zawodnika</a>
+        </div>
+	</div>
+<% end %>
+</div>

@@ -1,0 +1,24 @@
+<h1>Drużyny</h1>
+<div>
+	<form>
+		<div>
+			<table border=1>
+				<tr>
+					<th>Nr</th><th>Nazwa drużyny</th><th>Nazwa stadionu</th>
+				</tr>		
+				<% @druzyny.each do |druzyna| %>
+				<tr>
+					<td>		
+					</td>
+					<td>			
+						<%= druzyna.nazwa %>
+					</td>				
+					<td>
+						<%= druzyna.stadion %>
+					</td>
+				</tr>		
+				<% end %>
+			</table>
+		<div>
+	</form>
+</div>

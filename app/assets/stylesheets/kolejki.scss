@@ -1,0 +1,66 @@
+// Place all the styles related to the Kolejki controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.kolejki {
+	width: 90%;
+	color: #fff;
+	position: relative;
+	top: 50%;
+	left: 5%;
+	text-align:left;
+	font-size:20px;
+
+}
+
+.kolejki h1,h2,h3,h4 {
+	color:white;
+}
+
+
+.wyswietl-kolejke {
+	width: 90%;
+	color: #fff;
+	position: relative;
+	top: 50%;
+	left: 5%;
+	text-align:left;
+	font-size:13px;
+	background-attachment: fixed;
+}
+
+.wyswietl-kolejke h3,h2 {
+	color:white;
+	font-weight:bold;
+}
+.wyswietl-kolejke h4 {
+	color:white;
+}
+
+.nav-links3 {
+	flex:1;
+	text-align: left;
+	display: inline-block;
+}
+.nav-links3 a {
+	list-style: none;
+	display: inline-block;
+	padding: 3px 3px;
+	position: relative;
+}
+.nav-links3 a:link, a:visited {
+	color: #fff;
+	text-decoration:none;
+}
+.nav-links3 a:link::after {
+	content: '';
+	width: 0%;
+	height: 2px;
+	background: #f44336;
+	display:block;
+	margin: auto;
+	transition: 0.5s;
+}
+.nav-links3 a:link:hover::after {
+	width: 100%;
+}

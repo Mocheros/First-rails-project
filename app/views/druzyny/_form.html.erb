@@ -1,0 +1,35 @@
+<style>
+table {
+  width: 50%;
+  counter-reset: row-num -1;
+}
+table tr {
+  counter-increment: row-num;
+}
+table tr td:first-child::before {
+    content: counter(row-num) ". ";
+}
+</style>
+
+<%= form_with model: @druzyna do |form| %>
+  <div>
+    <%= form.label :"Nazwa drużyny" %><br>
+    <%= form.text_field :nazwa %>
+  </div>
+
+  <div>
+    <%= form.label :"Nazwa stadionu" %><br>
+    <%= form.text_field :stadion %>
+  </div>
+
+  <%= form.hidden_field :punkty, value: 0 %>
+  <%= form.hidden_field :zwyciestwa, value: 0 %>
+  <%= form.hidden_field :porazki, value: 0 %>
+  <%= form.hidden_field :remisy, value: 0 %>
+  <%= form.hidden_field :gole_strzelone, value: 0 %>
+  <%= form.hidden_field :gole_stracone, value: 0 %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

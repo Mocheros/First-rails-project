@@ -1,0 +1,62 @@
+<div class="wyswietl-kolejke">
+<h2>Rozgrywki</h2>
+
+<% if logged_in? %>
+  <h4>
+    <div class="nav-links3">
+      <%= link_to "Dodaj nową kolejkę", "/kolejki/new" %>
+    </div>
+  </h4>
+
+  <h4>
+    <div class="nav-links3">
+      <%= link_to "Dodaj nowy mecz", "/mecze/new" %>
+    </div>
+  </h4>
+<% end %>
+
+<% @kolejki.each do |kolejka| %>
+<h2>Kolejka <%= kolejka.nr %></h2>
+  <table border=1>
+      <% @mecze.each do |mecz| %>
+        <% if mecz.nr_kolejki == kolejka.id %>
+          <tr>
+            <td><%= mecz.termin%></td>
+                <% @gole1 = mecz.gole_pierwszego %>
+                <% @gole2 = mecz.gole_drugiego %>
+            <td>
+                <div class="nav-links3"><a href="/mecze/<%= mecz.id %>"><%= mecz.display_team1 %>  <% unless @gole1 == 0 && mecz.czywynik == 0 %> <%= mecz.gole_pierwszego %> <% end %> - <% unless @gole2 == 0  && mecz.czywynik == 0%> <%= mecz.gole_drugiego %> <% end %>  <%= mecz.display_team2 %></a></div></td>
+            <% if logged_in? %>
+            <td>
+              <% if mecz.czywynik == 0 %>
+                <% @sklad1 = Sklad.count_by_sql("SELECT COUNT(czysklad1) FROM sklads s, meczs m WHERE s.id_meczu = '#{mecz.id}'")%>
+                <% @sklad2 = Sklad.count_by_sql("SELECT COUNT(czysklad2) FROM sklads s, meczs m WHERE s.id_meczu = '#{mecz.id}'")%>
+                <% @wynik = Mecz.count_by_sql("SELECT czywynik FROM meczs WHERE id = '#{mecz.id}'")%>
+                  <% unless @sklad1 > 0%>
+                    <div class="nav-links3">
+                      <a href="/mecze/<%= mecz.id %>/gospodarze">Wprowadź skład gospodarzy</a>
+                    </div>
+                  <% end %>
+                  <% unless @sklad2 > 0%>
+                    <div class="nav-links3">
+                      <a href="/mecze/<%= mecz.id %>/goscie">Wprowadź skład gości</a>
+                    </div>
+                  <% end %>
+                  <% unless @sklad1 == 0 %>
+                    <% unless @sklad2 == 0%>
+                    <div class="nav-links3">
+                      <a href="/mecze/<%= mecz.id %>/statystyki">Wprowadź statystyki</a>
+                    </div>
+                    <div class="nav-links3">
+                      <%= link_to "Zakończ wprowadzanie", edit_mecze_path(mecz) %>
+                    </div>
+                    <% end %>
+                  <% end  %>
+              <% end %> 
+            </td>
+          <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+  </table>
+<% end %>

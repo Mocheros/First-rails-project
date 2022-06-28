@@ -1,0 +1,2 @@
+module KartkazHelper
+end

@@ -1,0 +1,31 @@
+<style>
+table {
+  width: 50%;
+  counter-reset: row-num -1;
+}
+table tr {
+  counter-increment: row-num;
+}
+table tr td:first-child::before {
+    content: counter(row-num) ". ";
+}
+</style>
+<div>
+	<h2>Dodaj drużynę</h2>
+
+		<%= form_with model: @nowa_druzyna do |form| %>
+		<div>
+			<%= form.label :"Nazwa drużyny"%><br>
+			<%= form.text_field :nazwa %>
+		</div>
+
+		<div>
+			<%= form.label :"Nazwa stadionu" %><br>
+			<%= form.text_field :stadion %>
+		</div>
+
+		<div>
+			<%= form.submit %>
+		</div>
+<% end %>
+</div>

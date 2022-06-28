@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Piłka nożna</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>    
+  </head>
+  <body>
+    <section class="header">
+    <nav>
+      <div class="logo">
+      </div>
+       <div class="nav-links">
+	<ul>
+    <li><%= link_to "Strona główna", "/home" %></li>
+		<li><%= link_to "Tabela", "/tabela" %></li>
+    <li><%= link_to "Drużyny", "/druzyny" %></li>
+		<li><%= link_to "Kolejki", "/kolejki" %></li>
+		<li><%= link_to "Strzelcy", "/strzelcy" %></li>
+    <li><%= link_to "Zawodnicy", "/zawodnicy" %></li>
+    <li><%= link_to "Konto", "/konto" %></li>
+	</ul>
+	</div>
+    </nav>
+
+   <%= yield %>
+  
+   <footer>
+	
+   </footer>
+   </section>
+  </body>
+</html>
