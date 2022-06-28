@@ -101,10 +101,10 @@ ActiveRecord::Schema.define(version: 2021_06_16_215743) do
   create_table "sklads", force: :cascade do |t|
     t.integer "id_meczu"
     t.integer "id_zespolu"
+    t.integer "id_zawodnika"
+    t.string "pozycja"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "id_zawodnika"
-    t.string "zawodnik1naz"
     t.string "zawodnik2naz"
     t.string "zawodnik3naz"
     t.string "zawodnik4naz"
@@ -117,28 +117,6 @@ ActiveRecord::Schema.define(version: 2021_06_16_215743) do
     t.string "zawodnik11naz"
     t.integer "czysklad1"
     t.integer "czysklad2"
-  end
-
-  create_table "statystyki_zawodnik_meczs", force: :cascade do |t|
-    t.integer "id_meczu"
-    t.integer "id_zawodnika"
-    t.integer "bramki_strzelone"
-    t.integer "asysty"
-    t.integer "zolte_kartki"
-    t.integer "czerwone_kartki"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "statystyki_zawodniks", force: :cascade do |t|
-    t.integer "id_zawodnika"
-    t.integer "liczba_meczow"
-    t.integer "gole"
-    t.integer "asysty"
-    t.integer "zolte_kartki"
-    t.integer "czerwone_kartki"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "statystykis", force: :cascade do |t|
